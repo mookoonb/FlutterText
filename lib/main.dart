@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'model/post.dart';
+import 'Demo/bottom_navigation_bar_demo.dart';
 
 void main() => runApp(App());
  
-
 class App extends StatelessWidget {
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),      
-      
       theme:ThemeData(
-          primarySwatch: Colors.red
+          primarySwatch: Colors.red,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.green[80]
        )
     );
   } 
@@ -18,54 +19,116 @@ class App extends StatelessWidget {
 
 class Home extends StatelessWidget {
 
-  Widget _listItemBuilder(BuildContext content,int index){
-    return Container(
-      color:  Colors.red,
-      margin:  EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(content).textTheme.title,
-          ),
-          SizedBox(height: 16.0),
-
-        ],
-      ),
-    );
-  }
 
 
   Widget build(BuildContext content){
-    return Scaffold(
+    return DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          backgroundColor:  Colors.green[100],
         appBar: AppBar(
+         
           title: Text('QF'),
+          actions: <Widget>[
+            IconButton(
+            icon: Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: ()=> debugPrint('on search'),
+          ),
+             IconButton(
+            icon: Icon(Icons.more_horiz),
+            tooltip: 'more',
+            onPressed: ()=> debugPrint('on search')
+            )
+          ],
           elevation: 0.0,
+          bottom: TabBar(
+            unselectedLabelColor: Colors.black12,
+            indicatorColor: Colors.black38,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.local_activity)),
+              Tab(icon: Icon(Icons.local_atm)),
+              Tab(icon: Icon(Icons.local_cafe)),
+            ],
+          ),
         ),
-        body: ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: _listItemBuilder
-        )
+            body: TabBarView(
+              children: <Widget>[
+                Icon(Icons.change_history),
+                Icon(Icons.chat),
+                Icon(Icons.check_circle)
+              ],
+            ),
+
+          drawer: Drawer(
+            child: ListView(
+                padding:  EdgeInsets.zero,
+                children: <Widget>[
+
+                  UserAccountsDrawerHeader(
+                    accountName: Text('wanghao'),
+                    accountEmail: Text('wanghao@nighao.net'),
+                    currentAccountPicture: CircleAvatar(
+                      backgroundImage: NetworkImage('http://cdn.duitang.com/uploads/item/201410/16/20141016202155_5ycRZ.thumb.700_0.jpeg'),
+                    ),
+
+                    decoration: BoxDecoration(
+                      color: Colors.yellow[200],
+                      image: DecorationImage(
+                        image: NetworkImage('http://yun.wotz.cn/xinyunpic/11166/154406433272959.jpg'),
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(Colors.red[400].withOpacity(0.5),BlendMode.hardLight)
+              
+                      )
+                    ),
+
+                  ),
+
+
+                  // DrawerHeader(
+                  //   child: Text('header'.toUpperCase()),
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.grey[100]
+                  //   ),
+                  // ),
+                  ListTile(
+                    trailing: Icon(Icons.message,color: Colors.red,size: 22),
+                    title:  Text('Message',textAlign: TextAlign.left),
+                    onTap: ()=> Navigator.pop(content)
+                  ),
+                   ListTile(
+                    trailing: Icon(Icons.library_books,color: Colors.red,size: 22),
+                    title:  Text('Like',textAlign: TextAlign.left),
+                    onTap: ()=> Navigator.pop(content)
+                  ),
+                   ListTile(
+                    trailing: Icon(Icons.settings,color: Colors.red,size: 22),
+                    title:  Text('Setting',textAlign: TextAlign.left),
+                    onTap: ()=> Navigator.pop(content)
+                  )
+                ],
+            ),
+          ),
+
+     
+          bottomNavigationBar: BottomNavigationBarDemo()
+
+            // drawer:  Container (
+            //   color: Colors.white,
+            //   padding:  EdgeInsets.all(8.0),
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[
+            //       Text('this is drawer')
+            //     ],
+            //   ),
+            // ),
+            
+    ),
     );
   }
 }
 
 
-
-class Hello extends StatelessWidget {
-  Widget build(BuildContext context){
-    return Center(
-      child: Text(
-        'hello flutter',
-        textDirection: TextDirection.ltr,
-        style:  TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.yellow,
-        ),
-      ),
-    );
-  }
-}
