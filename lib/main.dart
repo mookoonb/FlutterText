@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Demo/bottom_navigation_bar_demo.dart';
+import 'Demo/listViewDemo.dart';
+import 'Demo/bascid_demo.dart';
 
 void main() => runApp(App());
  
@@ -18,9 +20,6 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-
-
-
   Widget build(BuildContext content){
     return DefaultTabController(
         length: 3,
@@ -56,8 +55,8 @@ class Home extends StatelessWidget {
         ),
             body: TabBarView(
               children: <Widget>[
-                Icon(Icons.change_history),
-                Icon(Icons.chat),
+                listViewDemo(),
+                ViewDemo(),
                 Icon(Icons.check_circle)
               ],
             ),
