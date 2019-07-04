@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 class layoutDemo extends StatelessWidget {
 
   Widget build(BuildContext context){
-    return Column(
-      children: <Widget>[
-        IconBadge(Icons.memory,size: 80.0,)
-      ],
+    return Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+           children: <Widget>[
+             IconBadge(Icons.merge_type),
+             IconBadge(Icons.question_answer,size: 80 ),
+             IconBadge(Icons.pages)
+           ],
+        ),
     );
   }
 }
