@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Demo/bottom_navigation_bar_demo.dart';
 import 'Demo/listViewDemo.dart';
 import 'Demo/bascid_demo.dart';
+import 'Demo/layout_demo.dart';
 
 void main() => runApp(App());
  
@@ -57,7 +58,7 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 listViewDemo(),
                 ViewDemo(),
-                Icon(Icons.check_circle)
+               layoutDemo()
               ],
             ),
 
