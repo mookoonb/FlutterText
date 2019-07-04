@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 
 class ViewDemo extends StatelessWidget{
   Widget build(BuildContext context){
     return Container(
-      color: Colors.grey[100],
+
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage('http://pic37.nipic.com/20140113/8800276_184927469000_2.png'),
+          alignment: Alignment.topCenter,
+          fit: BoxFit.cover
+
+        )
+      ),
+
+
+
+      // color: Colors.grey[100],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-
-    
-
         children: <Widget>[
           Container(
             child: Icon(Icons.map,size: 32.0,color: Colors.blue),
