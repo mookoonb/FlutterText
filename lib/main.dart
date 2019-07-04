@@ -3,6 +3,7 @@ import 'Demo/bottom_navigation_bar_demo.dart';
 import 'Demo/listViewDemo.dart';
 import 'Demo/bascid_demo.dart';
 import 'Demo/layout_demo.dart';
+import 'Demo/page_View_Demo.dart';
 
 void main() => runApp(App());
  
@@ -23,7 +24,7 @@ class App extends StatelessWidget {
 class Home extends StatelessWidget {
   Widget build(BuildContext content){
     return DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           backgroundColor:  Colors.green[100],
         appBar: AppBar(
@@ -51,6 +52,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_activity)),
               Tab(icon: Icon(Icons.local_atm)),
               Tab(icon: Icon(Icons.local_cafe)),
+              Tab(icon: Icon(Icons.offline_pin)),
             ],
           ),
         ),
@@ -58,7 +60,9 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 listViewDemo(),
                 ViewDemo(),
-               layoutDemo()
+               layoutDemo(), 
+               PageViewDemo()
+
               ],
             ),
 
