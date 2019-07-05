@@ -1,9 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
+import 'package:flutter/material.dart';
 import 'package:lingdang/model/post.dart';
 
 class PageViewDemo extends StatelessWidget{
 
+    Widget build(BuildContext context){
+      return GridViewPageDemo();
+    }
+}
+
+
+class GridViewPageDemo extends StatelessWidget{
+  Widget _gridItemBuilder(BuildContext context,int index){
+    return Container(
+      child:  Image.network(
+        posts[index].imageUrl,
+        fit: BoxFit.cover
+      ),
+    );
+  }
+
+  Widget build(BuildContext context){
+    return GridView.builder(
+      itemCount: posts.length,
+      itemBuilder:  _gridItemBuilder,
+      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0
+      ),
+    );
+  }
+}
+
+
+class GridViewExtentDemo extends StatelessWidget {
   List<Widget> _buildTitles (int lenght){
     return List.generate(lenght, (int index){
         return Container(
