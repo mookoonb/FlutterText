@@ -14,16 +14,13 @@ class PageViewDemo extends StatelessWidget{
     });
   }
 
-
-
   Widget build(BuildContext context){
-
     return  GridView.count(
       crossAxisCount: 3,
       crossAxisSpacing: 3,
       mainAxisSpacing: 3,
+      // scrollDirection: Axis.horizontal,
       children: _buildTitles(100),
-       
       
       //  <Widget>[
       //   Container(
