@@ -2,7 +2,26 @@ import 'package:flutter/material.dart';
 
 class PageViewDemo extends StatelessWidget{
   Widget build(BuildContext context){
+    return PageSubViewDemo();
+  }
+}
+
+class PageSubViewDemo extends StatelessWidget {
+  Widget build(BuildContext context){
     return PageView(
+      // pageSnapping: false,
+
+      scrollDirection: Axis.vertical,
+
+      onPageChanged: (currentpage) => debugPrint('page:$currentpage'),
+
+      controller: PageController(
+        initialPage: 1,
+        keepPage: false,
+        viewportFraction: 0.85
+      ),
+
+
       children: <Widget>[
         Container(
           color: Colors.blue,
