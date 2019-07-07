@@ -72,7 +72,7 @@ class ViewDemo extends StatelessWidget{
           )
         ],
       ),
-    )
+    );
 
 
 
