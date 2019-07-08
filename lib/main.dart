@@ -5,12 +5,16 @@ import 'Demo/bascid_demo.dart';
 import 'Demo/layout_demo.dart';
 import 'Demo/page_View_Demo.dart';
 
+import 'Demo/sliver_demo.dart';
+
+
 void main() => runApp(App());
  
 class App extends StatelessWidget {
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: Home(),      
       theme:ThemeData(
           primarySwatch: Colors.red,
@@ -61,7 +65,7 @@ class Home extends StatelessWidget {
                 listViewDemo(),
                 ViewDemo(),
                layoutDemo(), 
-               PageViewDemo()
+               SliverDemo()
 
               ],
             ),
@@ -91,12 +95,12 @@ class Home extends StatelessWidget {
                   ),
 
 
-                  // DrawerHeader(
-                  //   child: Text('header'.toUpperCase()),
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.grey[100]
-                  //   ),
-                  // ),
+                  DrawerHeader(
+                    child: Text('header'.toUpperCase()),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[100]
+                    ),
+                  ),
                   ListTile(
                     trailing: Icon(Icons.message,color: Colors.red,size: 22),
                     title:  Text('Message',textAlign: TextAlign.left),

@@ -12,6 +12,7 @@ class PageViewDemo extends StatelessWidget{
 class GridViewPageDemo extends StatelessWidget{
   Widget _gridItemBuilder(BuildContext context,int index){
     return Container(
+      
       child:  Image.network(
         posts[index].imageUrl,
         fit: BoxFit.cover
@@ -23,7 +24,6 @@ class GridViewPageDemo extends StatelessWidget{
     return GridView.builder(
       itemCount: posts.length,
       itemBuilder:  _gridItemBuilder,
-      padding: 8.0,
       gridDelegate:  SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 150,
         // crossAxisCount: 3,
