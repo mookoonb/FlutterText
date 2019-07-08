@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:lingdang/model/post.dart';
 
 class PageViewDemo extends StatelessWidget{
@@ -24,10 +23,13 @@ class GridViewPageDemo extends StatelessWidget{
     return GridView.builder(
       itemCount: posts.length,
       itemBuilder:  _gridItemBuilder,
-      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0
+      padding: 8.0,
+      gridDelegate:  SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 150,
+        // crossAxisCount: 3,
+        crossAxisSpacing: 16.0,
+        mainAxisSpacing: 16.0,
+
       ),
     );
   }
