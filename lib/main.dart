@@ -3,7 +3,8 @@ import 'Demo/bottom_navigation_bar_demo.dart';
 import 'Demo/listViewDemo.dart';
 import 'Demo/bascid_demo.dart';
 import 'Demo/layout_demo.dart';
-import 'Demo/page_View_Demo.dart';
+import './Demo/page_View_Demo.dart';
+import './Demo/navigation_demo.dart';
 
 import 'Demo/sliver_demo.dart';
 
@@ -14,12 +15,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // home: NavigationDemo(),      
+      initialRoute: '/',
 
-      home: Home(),      
+      routes: {
+        '/':(context) => NavigationDemo(),
+        '/about':(context) =>Page(pageTitle: 'about')
+      },
       theme:ThemeData(
-          primarySwatch: Colors.red,
-          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-          splashColor: Colors.green[80]
+          // primarySwatch: Colors.red,
+          // highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          // splashColor: Colors.green[80]
        )
     );
   } 
@@ -31,7 +37,7 @@ class Home extends StatelessWidget {
         length: 4,
         child: Scaffold(
           backgroundColor:  Colors.green[100],
-        appBar: AppBar(
+          appBar: AppBar(
          
           title: Text('QF'),
           actions: <Widget>[
@@ -66,35 +72,27 @@ class Home extends StatelessWidget {
                 ViewDemo(),
                layoutDemo(), 
                SliverDemo()
-
               ],
             ),
-
           drawer: Drawer(
             child: ListView(
                 padding:  EdgeInsets.zero,
                 children: <Widget>[
-
                   UserAccountsDrawerHeader(
                     accountName: Text('wanghao'),
                     accountEmail: Text('wanghao@nighao.net'),
                     currentAccountPicture: CircleAvatar(
                       backgroundImage: NetworkImage('http://cdn.duitang.com/uploads/item/201410/16/20141016202155_5ycRZ.thumb.700_0.jpeg'),
                     ),
-
                     decoration: BoxDecoration(
                       color: Colors.yellow[200],
                       image: DecorationImage(
                         image: NetworkImage('http://yun.wotz.cn/xinyunpic/11166/154406433272959.jpg'),
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(Colors.red[400].withOpacity(0.5),BlendMode.hardLight)
-              
                       )
                     ),
-
                   ),
-
-
                   DrawerHeader(
                     child: Text('header'.toUpperCase()),
                     decoration: BoxDecoration(

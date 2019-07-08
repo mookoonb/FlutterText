@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:lingdang/model/post.dart';
 
 class PageViewDemo extends StatelessWidget{
-
     Widget build(BuildContext context){
       return GridViewPageDemo();
     }
 }
 
-
 class GridViewPageDemo extends StatelessWidget{
   Widget _gridItemBuilder(BuildContext context,int index){
     return Container(
-      
       child:  Image.network(
         posts[index].imageUrl,
         fit: BoxFit.cover
@@ -26,15 +23,12 @@ class GridViewPageDemo extends StatelessWidget{
       itemBuilder:  _gridItemBuilder,
       gridDelegate:  SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 150,
-        // crossAxisCount: 3,
         crossAxisSpacing: 16.0,
         mainAxisSpacing: 16.0,
-
       ),
     );
   }
 }
-
 
 class GridViewExtentDemo extends StatelessWidget {
   List<Widget> _buildTitles (int lenght){
@@ -96,7 +90,6 @@ class GridViewExtentDemo extends StatelessWidget {
   }
 }
 
-
 class pageImgViewDemo extends StatelessWidget {
 
  Widget _pageItemBuilder (BuildContext context, int index){
@@ -120,8 +113,6 @@ class pageImgViewDemo extends StatelessWidget {
   }
 
 }
-
-
 
 class PageSubViewDemo extends StatelessWidget {
   Widget build(BuildContext context){
