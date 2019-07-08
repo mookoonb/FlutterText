@@ -5,9 +5,9 @@ import 'Demo/bascid_demo.dart';
 import 'Demo/layout_demo.dart';
 import './Demo/page_View_Demo.dart';
 import './Demo/navigation_demo.dart';
-
 import 'Demo/sliver_demo.dart';
 
+import './Demo/form_demo.dart';
 
 void main() => runApp(App());
  
@@ -15,17 +15,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: NavigationDemo(),      
-      initialRoute: '/',
-
+      initialRoute: '/form',
       routes: {
         '/':(context) => NavigationDemo(),
-        '/about':(context) =>Page(pageTitle: 'about')
+        '/about':(context) =>Page(pageTitle: 'about'),
+        '/form':(context) => FormDemo(),
       },
       theme:ThemeData(
-          // primarySwatch: Colors.red,
-          // highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-          // splashColor: Colors.green[80]
+          primarySwatch: Colors.red,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.green[80],
+          accentColor: Colors.green
        )
     );
   } 
